@@ -112,7 +112,7 @@ class _TableEventsExampleState extends State<TableEventsExample> {
   }
 
   void showAddRatingEventDialog(DateTime day) {
-    double _rating = 3; // 기본 평점 값
+    double rating = 3; // 기본 평점 값
 
     showDialog(
       context: context,
@@ -123,15 +123,14 @@ class _TableEventsExampleState extends State<TableEventsExample> {
             content: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text(
-                    "${ratingToEmoji[_rating.toInt()]} ${_rating.toInt()} / 5"),
+                Text("${ratingToEmoji[rating.toInt()]} ${rating.toInt()} / 5"),
                 Slider(
                   min: 1,
                   max: 5,
                   divisions: 4,
-                  value: _rating,
+                  value: rating,
                   onChanged: (double value) {
-                    setState(() => _rating = value);
+                    setState(() => rating = value);
                   },
                 ),
               ],
@@ -145,8 +144,8 @@ class _TableEventsExampleState extends State<TableEventsExample> {
                   onPressed: () {
                     setState(() {
                       List<Event> newEvents = List.from(kEvents[day] ?? []);
-                      newEvents.add(Event('오늘의 평점: ${_rating.toInt()}/5',
-                          isRating: true));
+                      newEvents.add(
+                          Event('오늘의 평점: ${rating.toInt()}/5', isRating: true));
                       kEvents[day] = newEvents;
                       _selectedEvents.value = newEvents;
                     });
@@ -160,15 +159,14 @@ class _TableEventsExampleState extends State<TableEventsExample> {
   }
 
   void showEditEventDialog(Event event, DateTime day, int index) {
-    TextEditingController _controller =
-        TextEditingController(text: event.title);
+    TextEditingController controller = TextEditingController(text: event.title);
 
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
         title: Text("기록 수정하기"),
         content: TextField(
-          controller: _controller,
+          controller: controller,
           decoration: InputDecoration(hintText: "오늘 하루는 어떠셨나요?"),
         ),
         actions: <Widget>[
@@ -191,11 +189,11 @@ class _TableEventsExampleState extends State<TableEventsExample> {
           TextButton(
             child: Text("저장"),
             onPressed: () {
-              if (_controller.text.isNotEmpty) {
+              if (controller.text.isNotEmpty) {
                 setState(() {
                   List<Event> updatedEvents = List.from(_getEventsForDay(day));
                   updatedEvents[index] =
-                      Event(_controller.text, isRating: event.isRating);
+                      Event(controller.text, isRating: event.isRating);
                   kEvents[day] = updatedEvents;
                   _selectedEvents.value = updatedEvents;
                 });
@@ -209,14 +207,14 @@ class _TableEventsExampleState extends State<TableEventsExample> {
   }
 
   void showAddMessageEventDialog(DateTime day) {
-    TextEditingController _controller = TextEditingController();
+    TextEditingController controller = TextEditingController();
 
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
         title: Text("기록 추가하기"),
         content: TextField(
-          controller: _controller,
+          controller: controller,
           decoration: InputDecoration(hintText: "오늘 하루는 어떠셨나요?"),
         ),
         actions: <Widget>[
@@ -225,10 +223,10 @@ class _TableEventsExampleState extends State<TableEventsExample> {
           TextButton(
               child: Text("저장"),
               onPressed: () {
-                if (_controller.text.isNotEmpty) {
+                if (controller.text.isNotEmpty) {
                   setState(() {
                     List<Event> newEvents = List.from(kEvents[day] ?? []);
-                    newEvents.add(Event(_controller.text, isRating: false));
+                    newEvents.add(Event(controller.text, isRating: false));
                     kEvents[day] = newEvents;
                     _selectedEvents.value = newEvents;
                   });

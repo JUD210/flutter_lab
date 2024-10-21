@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
-import 'quest/quest_screen.dart' as quest;
-import 'playground/events_example.dart' as playground;
+import '../quest/quest_screen.dart';
+import '../playground/events_example.dart';
+import '../widgets/my_menu_btn.dart';
 
 void main() {
   initializeDateFormatting().then((_) => runApp(MaterialApp(home: MyApp())));
@@ -37,13 +38,13 @@ class MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
         title: Text('플러터 앱 만들기'),
         centerTitle: true, // 타이틀을 가운데 정렬
         backgroundColor: Colors.blue, // 색상을 파란색으로 변경
-        leading: Icon(Icons.menu), // 아이콘 추가
+        leading: MyMenuButton(), // 아이콘 추가
       ),
       body: TabBarView(
         controller: _tabController,
         children: [
-          quest.QuestScreen(), // 서브 퀘스트 내용
-          playground.TableEventsExample(), // 예전에 만든 tmp_calendar 내용
+          QuestScreen(), // 서브 퀘스트 내용
+          TableEventsExample(), // 예전에 만든 tmp_calendar 내용
         ],
       ),
       bottomNavigationBar: TabBar(

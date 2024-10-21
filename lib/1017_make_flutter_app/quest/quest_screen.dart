@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class QuestScreen extends StatelessWidget {
+  const QuestScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return _buildQuestScreen(context);
