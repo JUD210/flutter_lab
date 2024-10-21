@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
-import '../quest/quest_screen.dart';
-import '../playground/events_example.dart';
-import '../widgets/my_menu_btn.dart';
+import 'quest/quest_screen.dart';
+import 'playground/events_example.dart';
+import 'widgets/my_menu_btn.dart';
 
 void main() {
   initializeDateFormatting().then((_) => runApp(MaterialApp(home: MyApp())));
