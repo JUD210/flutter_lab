@@ -373,6 +373,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.2"
+  google_gemini_ai:
+    dependency: "direct main"
+    description:
+      name: google_gemini_ai
+      sha256: dfffb45379da32449c65a3e958faf2fd058f27639d275f59bfe10276593a6f9b
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
   graphs:
     dependency: transitive
     description:

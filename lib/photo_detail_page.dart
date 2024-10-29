@@ -3,7 +3,6 @@ import 'photo.dart';
 
 class PhotoDetailPage extends StatelessWidget {
   final Photo photo;
-
   const PhotoDetailPage({super.key, required this.photo});
 
   @override
@@ -11,6 +10,14 @@ class PhotoDetailPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(photo.title),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.delete),
+            onPressed: () {
+              Navigator.of(context).pop(photo.id); // 삭제 버튼 클릭 시 사진 ID 반환
+            },
+          ),
+        ],
       ),
       body: Center(
         child: Column(

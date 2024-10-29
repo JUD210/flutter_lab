@@ -27,6 +27,7 @@
     <!--    android:requestLegacyExternalStorage="true"-->
     <!-- preserveLegacyExternalStorage : 외부 저장소 액세스 권한 유지 -> 권한을 유지하여 앱 정상 작동-->
     <!--    android:preserveLegacyExternalStorage="true"-->
+    <!--    android:enableOnBackInvokedCallback="true"-->
     <application
             android:label="flutter_lab"
             android:name="${applicationName}"
