@@ -38,7 +38,7 @@ class TakePictureScreenState extends State<TakePictureScreen> {
         });
       }
     }).catchError((e) {
-      debugPrint('Error initializing camera: \$e'); // Debugging log
+      debugPrint('Error initializing camera: $e'); // Debugging log
     });
   }
 
@@ -50,22 +50,22 @@ class TakePictureScreenState extends State<TakePictureScreen> {
     }
     try {
       final XFile file = await _controller.takePicture();
-      debugPrint('Picture taken: \${file.path}'); // Debugging log
+      debugPrint('Picture taken: ${file.path}'); // Debugging log
 
       /// 사진을 저장할 경로 지정
       Directory directory = Directory('storage/emulated/0/DCIM/MyImages');
       await Directory(directory.path).create(recursive: true);
-      debugPrint('Directory created: \${directory.path}'); // Debugging log
+      debugPrint('Directory created: ${directory.path}'); // Debugging log
 
       /// 지정한 경로에 사진 저장
       final savedImage =
           await File(file.path).copy('${directory.path}/${file.name}');
-      debugPrint('Image saved to: \${savedImage.path}'); // Debugging log
+      debugPrint('Image saved to: ${savedImage.path}'); // Debugging log
       if (mounted) {
         Navigator.of(context).pop(savedImage.path); // 저장한 사진 경로 반환하며 페이지 종료
       }
     } catch (e) {
-      debugPrint('Error taking picture: \$e');
+      debugPrint('Error taking picture: $e');
     }
   }
 

@@ -29,7 +29,7 @@ class Photo {
 
 /// 사진을 로드하는 함수: 네트워크 이미지인지 파일 이미지인지 확인
 Widget loadImage(Photo photo) {
-  debugPrint('Loading image for photo: \$photo'); // Debugging log
+  debugPrint('Loading image for photo: $photo'); // Debugging log
   return photo.url.startsWith('http')
       ? Image.network(photo.url)
       : Image.file(File(photo.url));

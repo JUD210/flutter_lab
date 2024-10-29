@@ -11,7 +11,7 @@ Future<void> main() async {
 
   // 사용 가능한 카메라 확인
   final List<CameraDescription> cameras = await availableCameras();
-  debugPrint('Available cameras: \$cameras'); // Debugging log
+  debugPrint('Available cameras: $cameras'); // Debugging log
   runApp(MyApp(camera: cameras.first)); // 앱 실행 진입점
 }
 
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    debugPrint('Building MyApp with camera: \$camera'); // Debugging log
+    debugPrint('Building MyApp with camera: $camera'); // Debugging log
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: '/',

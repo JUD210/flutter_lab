@@ -40,7 +40,7 @@ class _GalleryPageState extends State<GalleryPage> {
         _nextPhotoId = _photos.isNotEmpty
             ? _photos.map((e) => e.id).reduce((a, b) => a > b ? a : b) + 1
             : 1; // 가장 큰 ID를 찾고, 다음 ID를 설정
-        debugPrint('Loaded photos: \$_photos'); // Debugging log
+        debugPrint('Loaded photos: $_photos'); // Debugging log
       });
     } else {
       debugPrint('No photos found in local storage.'); // Debugging log
@@ -58,7 +58,7 @@ class _GalleryPageState extends State<GalleryPage> {
 
   /// 새로운 사진을 갤러리에 추가하고 로컬 저장소에 저장하는 함수
   Future<void> _addPhoto(String imagePath) async {
-    debugPrint('Adding new photo with path: \$imagePath'); // Debugging log
+    debugPrint('Adding new photo with path: $imagePath'); // Debugging log
     setState(() {
       _photos.add(Photo(
           id: _nextPhotoId,
@@ -72,7 +72,7 @@ class _GalleryPageState extends State<GalleryPage> {
 
   /// 선택한 사진들을 삭제하는 함수
   Future<void> _deleteSelectedPhotos() async {
-    debugPrint('Deleting selected photos: \$_selectedPhotos'); // Debugging log
+    debugPrint('Deleting selected photos: $_selectedPhotos'); // Debugging log
     setState(() {
       _photos.removeWhere((photo) => _selectedPhotos.contains(photo.id));
       _selectedPhotos.clear();
@@ -116,7 +116,7 @@ class _GalleryPageState extends State<GalleryPage> {
                 ),
               );
               if (imagePath != null) {
-                debugPrint('Received image path: \$imagePath'); // Debugging log
+                debugPrint('Received image path: $imagePath'); // Debugging log
                 await _addPhoto(imagePath); // 찍은 사진을 갤러리에 추가합니다.
               }
             },
@@ -135,7 +135,7 @@ class _GalleryPageState extends State<GalleryPage> {
             itemCount: _photos.length,
             itemBuilder: (context, index) {
               final photo = _photos[index];
-              debugPrint('Displaying photo: \$photo'); // Debugging log
+              debugPrint('Displaying photo: $photo'); // Debugging log
               final isSelected = _selectedPhotos.contains(photo.id);
               return GestureDetector(
                 onTap: () async {
@@ -150,7 +150,7 @@ class _GalleryPageState extends State<GalleryPage> {
                   } else {
                     /// 사진 상세 페이지로 이동
                     debugPrint(
-                        'Navigating to photo detail page for photo: \$photo'); // Debugging log
+                        'Navigating to photo detail page for photo: $photo'); // Debugging log
                     final result = await Navigator.push(
                       context,
                       MaterialPageRoute(
