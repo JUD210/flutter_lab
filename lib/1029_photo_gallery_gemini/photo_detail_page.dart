@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'photo.dart';
+import '../photo.dart';
 import 'image_analyzer.dart'; // 이미지 분석 모듈 가져오기
 import 'dart:typed_data';
 import 'dart:io';

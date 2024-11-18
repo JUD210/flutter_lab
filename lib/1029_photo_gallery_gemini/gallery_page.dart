@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'photo.dart';
-import 'photo_detail_page.dart';
+import '../photo.dart';
+import '../photo_detail_page.dart';
 import 'camera.dart';
 import 'package:camera/camera.dart';
 import 'package:shared_preferences/shared_preferences.dart';
